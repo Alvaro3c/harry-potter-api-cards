@@ -12,10 +12,6 @@
     --primary-dark: 270, 100%, 6%;
 }
 
-body {
-    margin: 0;
-}
-
 .full-screen-container {
     background-image: url("./assets/background-image.jpg");
     height: 100vh;
@@ -94,3 +90,5 @@ body {
 .login-button:focus {
     background-color: hsl(var(--primary), .4);
 }
+
+/* header */
