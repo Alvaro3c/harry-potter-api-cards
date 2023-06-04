@@ -12,6 +12,18 @@
     --primary-dark: 270, 100%, 6%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+body {
+    background-color: #000;
+    color: #620162;
+}
+
 .full-screen-container {
     background-image: url("./assets/background-image.jpg");
     height: 100vh;
@@ -92,3 +104,36 @@
 }
 
 /* header */
+
+nav {
+    background-color: #620162;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu {
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    padding: 40px 40px 20px;
+    font-size: 60px;
+}
+
+p {
+    font-size: 20px;
+    margin: 0px 30px;
+}
