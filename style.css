@@ -31,6 +31,12 @@ body {
     font-family: var(--primay-font);
 }
 
+img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
 .full-screen-container {
     background-image: url("./assets/background-image.jpg");
     height: 100vh;
@@ -193,3 +199,7 @@ select {
     border-radius: 20px;
     color: #c44caebe;
 }
+
+/* gallery  */
+
+.portfolio {}
