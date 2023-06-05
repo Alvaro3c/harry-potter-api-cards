@@ -5,14 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Characters</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-    <header>
-
-    </header>
+    <div class="container">
+        <header>
+            <nav class="translucent-box">
+                <div class="menu">
+                    <ul id="menuLista">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Characters</a></li>
+                        <li><a href="#">Spells</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h1>Characters</h1>
+            <section class="search-container">
+                <div class="seach-bar-container">
+                    <input id="search-bar" type="text" placeholder="Search character">
+                </div>
+                <div id="house-select-container" class="select-container">
+                    <label for="">House</label>
+                    <select name="" id="House-select">
+                        <option value="">Grifyndor</option>
+                        <option value="">Slytherin</option>
+                        <option value="">Hupplepuf</option>
+                        <option value="">Ravenclaw</option>
+                    </select>
+                </div>
+                <div id="Patronus-select-container" class="select-container">
+                    <label for="">Patronus</label>
+                    <select name="" id="patronus-select">
+                        <!-- options por DOM -->
+                        <option value="">a borrar</option>
+                    </select>
+                </div>
+                <div id="wand-select-container" class="select-container">
+                    <label for="">Wand</label>
+                    <select name="" id="wand-select">
+                        <!-- options por DOM -->
+                        <option value="">a borrar</option>
+                    </select>
+                </div>
+            </section>
+            <section class="cards">
+                <!-- cards por DOM -->
+                <!-- añadir boton de siguiente? -->
+            </section>
+        </main>
+    </div>
 
     <script src="../script.js"></script>
 </body>

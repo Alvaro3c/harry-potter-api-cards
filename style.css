@@ -1,3 +1,6 @@
+/*add font https://fonts.google.com/specimen/Courgette */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 * {
     padding: 0px;
     margin: 0px;
@@ -10,6 +13,8 @@
     --primary-light: 270, 100%, 91%;
     --primary: 270, 100%, 50%;
     --primary-dark: 270, 100%, 6%;
+    --primay-font: "Courgette";
+    --basic-margin: 20px;
 }
 
 a {
@@ -17,11 +22,13 @@ a {
     color: black;
     font-weight: 700;
     font-size: 20px;
+    color: #fff;
 }
 
 body {
     background-color: #000;
-    color: #620162;
+    color: #a93da9;
+    font-family: var(--primay-font);
 }
 
 .full-screen-container {
@@ -35,11 +42,11 @@ body {
     align-items: center;
 }
 
-.login-container {
+.translucent-box {
     --color: hsl(var(--primary-dark), .7);
     background-color: var(--color);
     padding: 40px 30px;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     border-radius: 60px;
 }
@@ -70,7 +77,8 @@ body {
     font-weight: lighter;
 }
 
-.input-group input {
+.input-group input,
+#search-bar {
     font-size: 1.25rem;
     padding: .5em;
     background-color: hsl(var(--primary-light), .3);
@@ -111,7 +119,7 @@ nav {
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+
 }
 
 .menu {
@@ -137,3 +145,54 @@ p {
     font-size: 20px;
     margin: 0px 30px;
 }
+
+.container {
+    background-image: url("./assets/background-image.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+}
+
+/*Characters*/
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container div {
+    margin: 10px;
+}
+
+#search-bar {
+    width: 100%;
+    background-color: #a253a293;
+}
+
+.search-container label {
+    font-size: 30px;
+    color: #9f059f;
+    font-weight: 700;
+    text-shadow: 2px 0 #010000;
+}
+
+.select-container {
+    background-color: #ce760380;
+    padding: 10px 10px 10px 20px;
+    border-radius: 30px;
+}
+
+select {
+    background-color: #620162;
+    border: none;
+    font-size: 20px;
+    margin: 0px 20px;
+    padding: 10px;
+    border-radius: 20px;
+    color: #c44caebe;
+}
+
+
+/*meterle un buen flex a search-container*/
