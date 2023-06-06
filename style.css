@@ -45,11 +45,11 @@ img {
 
 .full-screen-container {
     background-image: url("./assets/background-image.jpg");
+    background-attachment: fixed;
     height: 100vh;
     width: 100vw;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,30 +249,6 @@ select {
     -webkit-backdrop-filter: blur(4px);
 }
 
-.all-character-data {
-    display: flex;
-    align-items: end;
-}
-
-.card h3 {
-    font-size: 30px;
-    text-align: center;
-}
-
-#character-container img {
-    width: 80%;
-}
-
-.character-data {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
-.character-data label {
-    margin-top: 5px;
-}
-
 .Gryffindor {
     border-color: hsl(var(--Gryfindor-color), .9);
     background-color: hsl(var(--Gryfindor-color), .2);
@@ -292,6 +268,45 @@ select {
     border-color: hsl(var(--Ravenclaw-color), .9);
     background-color: hsl(var(--Ravenclaw-color), .2);
 }
+
+.all-character-data {
+    display: flex;
+    align-items: end;
+}
+
+#character-container img {
+    width: 80%;
+}
+
+.card h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.neon-text {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #00b6d2,
+        0 0 21px #00b6d2,
+        0 0 42px #00b6d2,
+        0 0 82px #00b6d2,
+        0 0 92px #00b6d2,
+        0 0 102px #00b6d2,
+        0 0 151px #00b6d2;
+}
+
+.character-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.character-data label {
+    margin-top: 5px;
+}
+
+
 
 ::placeholder {
     color: #bc7b04;

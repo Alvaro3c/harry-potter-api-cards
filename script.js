@@ -17,9 +17,9 @@ async function getCharacters() {
                         
                             <h3>${data[i].name}</h3>
                             <div class="character-data"
-                                <label>${data[i].species}</label>
-                                <label>${data[i].house}</label>
-                                <label>${data[i].patronus}</label>
+                                <label>Species: ${data[i].species}</label>
+                                <label>House: ${data[i].house}</label>
+                                <label class ="neon-text">Patronus: ${data[i].patronus}</label>
                                 <label><a>More details</a></label>
                             </div>
                         
