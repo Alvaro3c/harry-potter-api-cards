@@ -14,13 +14,15 @@ async function getCharacters() {
         charactersContainer.appendChild(cardArticle);
         cardArticle.innerHTML =
             `<img src="${data[i].image}" alt="">
-                        <h3>${data[i].name}</h3>
-                       <div class="character-data"
-                        <label>${data[i].species}</label>
-                        <label>${data[i].house}</label>
-                        <label>${data[i].patronus}</label>
-                        </div>
-                        <label><a>More details</a></label>
+                        
+                            <h3>${data[i].name}</h3>
+                            <div class="character-data"
+                                <label>${data[i].species}</label>
+                                <label>${data[i].house}</label>
+                                <label>${data[i].patronus}</label>
+                                <label><a>More details</a></label>
+                            </div>
+                        
                         `
         //return an array with no repeated elements of wand's core
         if (arrayOfWands.indexOf(data[i].wand.core) === -1) {

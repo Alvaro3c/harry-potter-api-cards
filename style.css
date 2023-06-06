@@ -37,10 +37,11 @@ body {
 }
 
 img {
-    width: 100%;
+    width: 90%;
     margin-bottom: 10px;
 }
 
+/*register and login*/
 
 .full-screen-container {
     background-image: url("./assets/background-image.jpg");
@@ -59,7 +60,6 @@ img {
     background-color: var(--color);
     padding: 40px 30px;
     width: 100%;
-    max-width: 600px;
     border-radius: 60px;
 }
 
@@ -141,6 +141,7 @@ nav {
 ul {
     display: flex;
     justify-content: space-around;
+    list-style-type: none;
 }
 
 li {
@@ -156,6 +157,22 @@ h1 {
 p {
     font-size: 20px;
     margin: 0px 30px;
+}
+
+#home-link {
+    color: hsl(var(--Gryfindor-color), 1)
+}
+
+#characters-link {
+    color: hsl(var(--Slytherin-color), 1)
+}
+
+#spells-link {
+    color: hsl(var(--Ravenclaw-color), 1)
+}
+
+#gallery-link {
+    color: hsl(var(--Hufflepuff-color), 1)
 }
 
 .container {
@@ -223,13 +240,18 @@ select {
     max-width: 270px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: rgba(171, 9, 152, 0.13);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(4px);
+}
+
+.all-character-data {
+    display: flex;
+    align-items: end;
 }
 
 .card h3 {
@@ -271,4 +293,32 @@ select {
     background-color: hsl(var(--Ravenclaw-color), .2);
 }
 
+::placeholder {
+    color: #bc7b04;
+}
+
+
+
 /* gallery  */
+
+
+/*media queries */
+
+@media (min-width: 1000px) {
+    .search-container {
+        display: flex;
+
+        justify-content: center;
+    }
+
+    .all-selects {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .seach-bar-container {
+        width: 60%;
+    }
+
+
+}

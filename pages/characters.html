@@ -14,11 +14,11 @@
         <header>
             <nav class="translucent-box">
                 <div class="menu">
-                    <ul id="menuLista">
-                        <li><a href="./home.html">Home</a></li>
-                        <li><a href="./characters.html">Characters</a></li>
-                        <li><a href="./spells.html">Spells</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
+                    <ul id="list-menu">
+                        <li><a id="home-link" href="./home.html">Home</a></li>
+                        <li><a id="characters-link" href="./characters.html">Characters</a></li>
+                        <li><a id="spells-link" href="./spells.html">Spells</a></li>
+                        <li><a id="gallery-link" href="./gallery.html">Gallery</a></li>
                     </ul>
                 </div>
             </nav>
@@ -29,28 +29,30 @@
                 <div class="seach-bar-container">
                     <input id="search-bar" type="text" placeholder="Search character">
                 </div>
-                <div id="house-select-container" class="select-container">
-                    <label for="">House</label>
-                    <select name="" id="House-select">
-                        <option value="">Gryffindor</option>
-                        <option value="">Slytherin</option>
-                        <option value="">Hufflepuff</option>
-                        <option value="">Ravenclaw</option>
-                    </select>
-                </div>
-                <div id="Patronus-select-container" class="select-container">
-                    <label for="">Patronus</label>
-                    <select name="" id="patronus-select">
-                        <!-- options por DOM -->
-                        <option value="">a borrar</option>
-                    </select>
-                </div>
-                <div id="wand-select-container" class="select-container">
-                    <label for="">Wand</label>
-                    <select name="" id="wand-select">
-                        <!-- options por DOM -->
-                        <option value="">a borrar</option>
-                    </select>
+                <div class="all-selects">
+                    <div id="house-select-container" class="select-container">
+                        <label for="">House</label>
+                        <select name="" id="House-select">
+                            <option value="">Gryffindor</option>
+                            <option value="">Slytherin</option>
+                            <option value="">Hufflepuff</option>
+                            <option value="">Ravenclaw</option>
+                        </select>
+                    </div>
+                    <div id="Patronus-select-container" class="select-container">
+                        <label for="">Patronus</label>
+                        <select name="" id="patronus-select">
+                            <!-- options por DOM -->
+                            <option value="">a borrar</option>
+                        </select>
+                    </div>
+                    <div id="wand-select-container" class="select-container">
+                        <label for="">Wand</label>
+                        <select name="" id="wand-select">
+                            <!-- options por DOM -->
+                            <option value="">a borrar</option>
+                        </select>
+                    </div>
                 </div>
             </section>
             <section id="character-container">
