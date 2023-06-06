@@ -13,20 +13,15 @@ async function getCharacters() {
 
         charactersContainer.appendChild(cardCharacter);
         cardCharacter.innerHTML =
-            `<img src="${data[i].image}" alt="">
-                        
+            `               <img src="${data[i].image}" alt="">
                             <h3>${data[i].name}</h3>
                             <div class="character-data"
                                 <label>Species: ${data[i].species}</label>
                                 <label>House: ${data[i].house}</label>
                                 <label class ="neon-text">Patronus: ${data[i].patronus}</label>
-                                <label><a>More details</a></label>
+                                <label><a href="characters-full.html">More details</a></label>
                             </div>
-                        
                         `
-
-
-
         //return an array with no repeated elements of wand's core
         if (arrayOfWands.indexOf(data[i].wand.core) === -1) {
             arrayOfWands.push(data[i].wand.core);
@@ -35,9 +30,7 @@ async function getCharacters() {
         //return an array with no repeated elements of patronus
         if (arrayOfPatronus.indexOf(data[i].patronus === -1)) {
             arrayOfPatronus.push(data[i].patronus);
-
         };
-
     };
     return arrayOfWands, arrayOfPatronus;
 };
@@ -56,9 +49,9 @@ async function getSpells() {
         cardSpells.setAttribute('class', 'card spells');
         spellsContainer.appendChild(cardSpells)
         cardSpells.innerHTML = `
-        <h3>${data[i].name}</h3>
-        <label>${data[i].description}</label>
-        `
+                                <h3>${data[i].name}</h3>
+                                <label>${data[i].description}</label>
+                                `
     }
 }
 getSpells()
