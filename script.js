@@ -10,11 +10,23 @@ const cards = document.querySelectorAll('.card');
 let arrayOfWands = [];
 let arrayOfPatronus = [];
 
-async function getCharacters() {
-    let response = await fetch('https://hp-api.onrender.com/api/characters');
-    let data = await response.json();
-    function printCharacters() {
+let dataArray = [];
 
+async function getData() {
+    try {
+        const response = await fetch('https://hp-api.onrender.com/api/characters');
+        const data = await response.json();
+        dataArray = [...data];
+        return data;
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+}
+
+async function getCharacters(data) {
+    function printCharacters() {
+        charactersContainer.innerHTML = '';
         for (let i = 0; i < data.length; i++) {
             let cardCharacter = document.createElement('article');
             cardCharacter.setAttribute('class', `card ${data[i].house} `);
@@ -43,33 +55,58 @@ async function getCharacters() {
         return arrayOfPatronus, arrayOfWands
     };
     function printPatronusOptions() {
+        const fragment = document.createDocumentFragment();
         for (patronus of arrayOfPatronus) {
-            patronusSelect.innerHTML += `<option value="${patronus}">${patronus}</option>`
-
+            const option = document.createElement('option')
+            option.value = patronus;
+            option.textContent = patronus;
+            fragment.appendChild(option);
         }
+
+        patronusSelect.appendChild(fragment);
     }
     function printWandOptions() {
         for (wand of arrayOfWands) {
             wandSelect.innerHTML += `<option value="${wand}">${wand}</option>`
         }
     }
-    function filterCards() {
-        //inputSearch, wandSelect, patronusSelect
-        //cards
-        //Si los valores de los inputs son nulos, se muesta todo
-        //Si coindcide uno solo dato, charactersContainer.innerHTML se vacia, y despues imprimo las nuevas
-        data.filter(Characters => {
-            if (Characters.name.includes(inputSearch.value) === true) {
-                console.log('hay un harry')
-            }
-        })
-    }
     printCharacters();
     printWandOptions()
     printPatronusOptions()
-    filterCards()
 }
-getCharacters()
+
+function filterCharacters(event) {
+    console.log(event);
+    const search = inputSearch.value.toLowerCase();
+    const house = houseSelect.value.toLowerCase();
+    const patronus = patronusSelect.value.toLowerCase();
+    const wand = wandSelect.value.toLowerCase();
+    console.log(house);
+
+    const formattedData = dataArray.filter(character => {
+        const nameMatch = !search || (search && character.name.toLowerCase().includes(search));
+        const houseMatch = !house || (house && character.house.toLowerCase().includes(house));
+        const patronusMatch = !patronus || (patronus && character.patronus.toLowerCase().includes(patronus));
+        const wandMatch = !wand || (wand && character.wand.core.toLowerCase().includes(wand));
+
+        console.log(nameMatch, houseMatch, patronusMatch, wandMatch);
+        return nameMatch && houseMatch && patronusMatch && wandMatch;
+    })
+
+    getCharacters(formattedData)
+    //inputSearch, wandSelect, patronusSelect, houseSelect
+    //cards
+    //Si los valores de los inputs son nulos, se muesta todo
+    //Si coindcide uno solo dato, charactersContainer.innerHTML se vacia, y despues imprimo las nuevas
+}
+
+async function initialize() {
+    const data = await getData();
+    getCharacters(data);
+    document.querySelector('form').addEventListener('input', filterCharacters);
+}
+
+initialize()
 
 async function getAndPrintSpells() {
     let response = await fetch('https://hp-api.onrender.com/api/spells');
