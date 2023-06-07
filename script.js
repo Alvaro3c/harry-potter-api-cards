@@ -1,11 +1,13 @@
 const charactersContainer = document.getElementById('character-container');
 const spellsContainer = document.getElementById('spells-container');
+const characterFileContainer = document.getElementById('character-file')
 let arrayOfWands = [];
 let arrayOfPatronus = [];
 
 async function getCharacters() {
     let response = await fetch('https://hp-api.onrender.com/api/characters');
     let data = await response.json();
+    console.log(data)
     //Print Characters
     for (let i = 0; i < data.length; i++) {
         let cardCharacter = document.createElement('article');
@@ -22,6 +24,8 @@ async function getCharacters() {
                                 <label><a href="characters-full.html">More details</a></label>
                             </div>
                         `
+
+
         //return an array with no repeated elements of wand's core
         if (arrayOfWands.indexOf(data[i].wand.core) === -1) {
             arrayOfWands.push(data[i].wand.core);
