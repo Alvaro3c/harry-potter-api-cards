@@ -4,10 +4,10 @@ const characterFileContainer = document.getElementById('character-file')
 let arrayOfWands = [];
 let arrayOfPatronus = [];
 
-async function getCharacters() {
+async function printCharacters() {
     let response = await fetch('https://hp-api.onrender.com/api/characters');
     let data = await response.json();
-    console.log(data)
+
     //Print Characters
     for (let i = 0; i < data.length; i++) {
         let cardCharacter = document.createElement('article');
@@ -24,28 +24,29 @@ async function getCharacters() {
                                 <label><a href="characters-full.html">More details</a></label>
                             </div>
                         `
-
-
-        //return an array with no repeated elements of wand's core
-        if (arrayOfWands.indexOf(data[i].wand.core) === -1) {
+        //return an array with no repeated elements of wand's core //CHECK BIEN
+        if (arrayOfWands.indexOf(data[i].wand.core) === -1 && data[i].wand.core !== "") {
             arrayOfWands.push(data[i].wand.core);
+        };
 
-        }
-        //return an array with no repeated elements of patronus
-        if (arrayOfPatronus.indexOf(data[i].patronus === -1)) {
+        //return an array with no repeated elements of patronus 
+        if (arrayOfPatronus.indexOf(data[i].patronus) === -1 && data[i].patronus !== "") {
             arrayOfPatronus.push(data[i].patronus);
         };
     };
     return arrayOfWands, arrayOfPatronus;
 };
-getCharacters();
+printCharacters();
+
+
+
+
 
 
 
 async function getSpells() {
     let response = await fetch('https://hp-api.onrender.com/api/spells');
     let data = await response.json();
-    console.log(data)
     //Print Characters
     for (let i = 0; i < data.length; i++) {
 
