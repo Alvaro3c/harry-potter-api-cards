@@ -218,6 +218,7 @@ select {
     padding: 10px;
     border-radius: 20px;
     color: #c44caebe;
+    text-align: center;
 }
 
 /*Characters cards */
@@ -305,6 +306,10 @@ select {
 
 ::placeholder {
     color: #bc7b04;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 /* gallery  */
