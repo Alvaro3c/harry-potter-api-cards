@@ -59,52 +59,54 @@ function printCharactersCards(data) {
         cardCharacter.setAttribute('class', `card ${data[i].house} `);
         charactersContainer.appendChild(cardCharacter);
         let patronus = `<label id="label-patronus" class ="neon-text">Patronus: ${data[i].patronus}</label>`
-        cardCharacter.innerHTML =
-            `
-    <img src="${data[i].image}" alt="">
-    <h3>${data[i].name}</h3>
-    <div class="character-data"
-        <label">Species: ${data[i].species}</label>
-        <label id="label-house">House: ${data[i].house}</label>
-        ${data[i].patronus ? patronus : ''}
-        <label id="label-wand-core" >wand: ${data[i].wand.core}</label>
-    </div>
-    <label id="more-detail-label"><button id="btn-details-${i}">More details</button></label>
-            `
-        let btnDetail = document.querySelector(`#btn-details-${i}`);
-        let btnDetailId = document.querySelector(`#btn-details-${i}`).attributes.id.nodeValue
+        let wandCore = `<label id="label-wand-core" >wand: ${data[i].wand.core}</label>`
+        let house = `<label id="label-house">House: ${data[i].house}</label>`
+        cardCharacter.innerHTML = `
+                <img src="${data[i].image}" alt="">
+                <h3>${data[i].name}</h3>
+                <div class="character-data"
+                    <label">Species: ${data[i].species}</label>
+                    ${data[i].house ? house : ''}
+                    ${data[i].patronus ? patronus : ''}
+                    ${data[i].wand.core ? wandCore : ''}
+                </div>
+                <label id="more-detail-label"><button id="btn-details0${i}">More details</button></label>`
+
+        let btnDetail = document.querySelector(`#btn-details0${i}`);
+        let btnDetailId = document.querySelector(`#btn-details0${i}`).attributes.id.nodeValue
         btnDetail.addEventListener('click', () => {
-            //guardar en local el id de la tarjeta, 
-            localStorage.setItem('idBtn', JSON.stringify(btnDetailId));
+            localStorage.setItem('idBtn', btnDetailId);
             window.open('./characters-full.html');
-            //leer de local storage (igual hay que llamarlo a la hora de printear)
-            //y despues pillar la ultima posicion del string del id, que contiene la posicion del array de objetos que queremos pintar!!!!!!!!!!!!!!!
         });
     };
-
 };
 
 function printCharactersFiles(data) {
     let questionsData = localStorage.getItem('idBtn');
-    let numberIdOfCharacter = questionsData[questionsData.length - 2]
+    let stringIdOfCharacter = '' + (questionsData[questionsData.length - 2]) + (questionsData[questionsData.length - 1]);
+    let numberIdOfCharacter = stringIdOfCharacter * 1
+    let actor = `<label><span>Actor:</span> ${data[numberIdOfCharacter].actor}</label>`
+    let ancestry = `<label><span>Ancestry:</span> ${data[numberIdOfCharacter].ancestry}</label>`
+    let eyeColour = `<label><span>Eye color:</span> ${data[numberIdOfCharacter].eyeColour}</label>`
+    let house = `<label><span>House:</span>${data[numberIdOfCharacter].house} </label>`
+    let wandWood = `<label><span>Wand's wood:</span> ${data[numberIdOfCharacter].wand.wood}</label>`
+    let wandCore = ` <label><span>Wand's core:</span> ${data[numberIdOfCharacter].wand.core}</label>`
 
-    characterFileContainer.innerHTML =
-        `<article class="character-file">
-                <div class="all-data-container">
+    characterFileContainer.innerHTML = `
+                <article class="all-data-container ${data[numberIdOfCharacter].house}">
                     <img src="${data[numberIdOfCharacter].image}" alt="">
                     <div class="data-container">
                         <h2>${data[numberIdOfCharacter].name}</h2>
-                        <label>Actor: ${data[numberIdOfCharacter].actor}</label>
-                        <label>Alternate names:YA VEVEMOS </label>
-                        <label>Ancestry: ${data[numberIdOfCharacter].ancestry}</label>
-                        <label>Eye color: ${data[numberIdOfCharacter].eyeColour}</label>
-                        <label>House:${data[numberIdOfCharacter].house} </label>
-                        <label>Wand's wood: ${data[numberIdOfCharacter].wand.wood}</label>
-                        <label>Wand's core: ${data[numberIdOfCharacter].wand.core}</label>
+                        ${data[numberIdOfCharacter].actor ? actor : ''}
+                        <label><span>Alternate names:</span>YA VEVEMOS </label>
+                        ${data[numberIdOfCharacter].ancestry ? ancestry : ''}
+                        ${data[numberIdOfCharacter].eyeColour ? eyeColour : ''}
+                        ${data[numberIdOfCharacter].house ? house : ''}
+                        ${data[numberIdOfCharacter].wandWood ? wandWood : ''}
+                        ${data[numberIdOfCharacter].wandCore ? wandCore : ''}                       
                     </div>
-                </div>
-            </article>`
-
+                </article>
+            `
 }
 
 async function getCharacters(data) {
