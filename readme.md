@@ -13,4 +13,4 @@ This is a Harry Potter based fan page. You will find a variety of character card
 - Change API to potterDB to acces more information.
 - Introduce buttons to move between pages to improve user experience
 - log in and register so anyone can save their favorite characters and spells.
-- Show case in a map movie shooting locations.
+- Show case in a map movie shooting locations. 
