@@ -1,4 +1,3 @@
-/*add font https://fonts.google.com/specimen/Courgette */
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 * {
@@ -6,8 +5,6 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
-/* Register and login */
 
 :root {
     --primary-light: 270, 100%, 91%;
@@ -22,12 +19,21 @@
     --Ravenclaw-color: 203, 90%, 24%;
 }
 
-a {
+a,
+button {
     text-decoration: none;
     color: black;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     color: #fff;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    font-family: var(--primay-font);
 }
 
 body {
@@ -47,87 +53,7 @@ img {
     margin-bottom: 10px;
 }
 
-/*register and login*/
-
-.full-screen-container {
-    background-image: url("./assets/background-image.jpg");
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.translucent-box {
-    --color: hsl(var(--primary-dark), .7);
-    background-color: var(--color);
-    padding: 40px 30px;
-    width: 100%;
-    border-radius: 60px;
-}
-
-.login-title {
-    margin: 0;
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: normal;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.input-group label {
-    color: white;
-    font-weight: lighter;
-}
-
-.input-group input,
-#search-bar {
-    font-size: 1.25rem;
-    padding: .5em;
-    background-color: hsl(var(--primary-light), .3);
-    border: none;
-    outline: none;
-    border-radius: .25em;
-    color: white;
-    font-weight: lighter;
-}
-
-.input-group .msg {
-    display: none;
-    font-size: .75rem;
-}
-
-.login-button {
-    padding: .5em 1em;
-    font-size: 1.5rem;
-    font-weight: lighter;
-    color: white;
-    background-color: hsl(var(--primary), .25);
-    border: 1px solid hsl(var(--primary));
-    border-radius: .25em;
-    outline: none;
-    cursor: pointer;
-}
-
-.login-button:hover,
-.login-button:focus {
-    background-color: hsl(var(--primary), .4);
-}
+button {}
 
 /* header */
 nav {
@@ -138,8 +64,12 @@ nav {
     align-items: center;
 }
 
-.menu {
+.translucent-box {
+    --color: hsl(var(--primary-dark), .7);
+    background-color: var(--color);
+    padding: 40px 30px;
     width: 100%;
+    border-radius: 60px;
 }
 
 ul {
@@ -162,6 +92,11 @@ p {
     font-size: 20px;
     margin: 0px 30px;
 }
+
+.menu {
+    width: 100%;
+}
+
 
 #home-link {
     color: hsl(var(--Gryfindor-color), 1)
@@ -187,6 +122,18 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+input,
+#search-bar {
+    font-size: 1.25rem;
+    padding: .5em;
+    background-color: hsl(var(--primary-light), .3);
+    border: none;
+    outline: none;
+    border-radius: .25em;
+    color: white;
+    font-weight: lighter;
 }
 
 .search-container div {
@@ -298,10 +245,15 @@ select {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 .character-data label {
     margin-top: 5px;
+}
+
+#more-detail-label {
+    margin: 20px 0px 0px 0px;
 }
 
 ::placeholder {
@@ -323,7 +275,6 @@ select {
 }
 
 /*media queries */
-
 @media (min-width: 1000px) {
     .search-container {
         display: flex;
@@ -339,8 +290,6 @@ select {
     .seach-bar-container {
         width: 60%;
     }
-
-
 }
 
 img {

@@ -1,16 +1,16 @@
 const charactersContainer = document.getElementById('character-container');
 const spellsContainer = document.getElementById('spells-container');
-const characterFileContainer = document.getElementById('character-file');
+const characterFileContainer = document.getElementById('character-files');
 const houseSelect = document.getElementById('house-select');
 const patronusSelect = document.getElementById('patronus-select');
 const wandSelect = document.getElementById('wand-select');
 const inputSearch = document.getElementById('search-bar');
 const cards = document.querySelectorAll('.card');
 const form = document.querySelector('form');
+const characterData = document.querySelector('.character-data')
 
 let arrayOfWands = [];
 let arrayOfPatronus = [];
-
 let dataArray = [];
 
 async function getDataFromCharacters() {
@@ -52,30 +52,66 @@ function printWandOptions() {
     }
 }
 
-function printCharacters(data) {
+function printCharactersCards(data) {
     charactersContainer.innerHTML = '';
     for (let i = 0; i < data.length; i++) {
         let cardCharacter = document.createElement('article');
         cardCharacter.setAttribute('class', `card ${data[i].house} `);
         charactersContainer.appendChild(cardCharacter);
+        let patronus = `<label id="label-patronus" class ="neon-text">Patronus: ${data[i].patronus}</label>`
         cardCharacter.innerHTML =
-            `<img src="${data[i].image}" alt="">
-            <h3>${data[i].name}</h3>
-            <div class="character-data"
-                <label">Species: ${data[i].species}</label>
-                <label id="label-house">House: ${data[i].house}</label>
-                <label id="label-patronus" class ="neon-text">Patronus: ${data[i].patronus}</label>
-                <label id="label-wand-core" >wand: ${data[i].wand.core}</label>
-                <label><a href="characters-full.html">More details</a></label>
-            </div>
             `
+    <img src="${data[i].image}" alt="">
+    <h3>${data[i].name}</h3>
+    <div class="character-data"
+        <label">Species: ${data[i].species}</label>
+        <label id="label-house">House: ${data[i].house}</label>
+        ${data[i].patronus ? patronus : ''}
+        <label id="label-wand-core" >wand: ${data[i].wand.core}</label>
+    </div>
+    <label id="more-detail-label"><button id="btn-details-${i}">More details</button></label>
+            `
+        let btnDetail = document.querySelector(`#btn-details-${i}`);
+        let btnDetailId = document.querySelector(`#btn-details-${i}`).attributes.id.nodeValue
+        btnDetail.addEventListener('click', () => {
+            //guardar en local el id de la tarjeta, 
+            localStorage.setItem('idBtn', JSON.stringify(btnDetailId));
+            window.open('./characters-full.html');
+            //leer de local storage (igual hay que llamarlo a la hora de printear)
+            //y despues pillar la ultima posicion del string del id, que contiene la posicion del array de objetos que queremos pintar!!!!!!!!!!!!!!!
+        });
     };
+
 };
+
+function printCharactersFiles(data) {
+    let questionsData = localStorage.getItem('idBtn');
+    let numberIdOfCharacter = questionsData[questionsData.length - 2]
+
+    characterFileContainer.innerHTML =
+        `<article class="character-file">
+                <div class="all-data-container">
+                    <img src="${data[numberIdOfCharacter].image}" alt="">
+                    <div class="data-container">
+                        <h2>${data[numberIdOfCharacter].name}</h2>
+                        <label>Actor: ${data[numberIdOfCharacter].actor}</label>
+                        <label>Alternate names:YA VEVEMOS </label>
+                        <label>Ancestry: ${data[numberIdOfCharacter].ancestry}</label>
+                        <label>Eye color: ${data[numberIdOfCharacter].eyeColour}</label>
+                        <label>House:${data[numberIdOfCharacter].house} </label>
+                        <label>Wand's wood: ${data[numberIdOfCharacter].wand.wood}</label>
+                        <label>Wand's core: ${data[numberIdOfCharacter].wand.core}</label>
+                    </div>
+                </div>
+            </article>`
+
+}
 
 async function getCharacters(data) {
     printWandOptions()
     printPatronusOptions()
-    printCharacters(data);
+    printCharactersCards(data);
+    printCharactersFiles(data)
 }
 
 function filterCharacters() {
@@ -107,6 +143,8 @@ async function initialize() {
     form.addEventListener('input', filterCharacters);
 }
 initialize();
+
+
 
 async function getAndPrintSpells() {
     let response = await fetch('https://hp-api.onrender.com/api/spells');
