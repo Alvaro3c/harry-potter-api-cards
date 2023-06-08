@@ -275,6 +275,19 @@ select {
     justify-content: center;
 }
 
+.spells {
+    color: #a93da9;
+    transition: 1.5s;
+}
+
+.spells:hover {
+    color: hsl(var(--Hufflepuff-color));
+}
+
+.spells:focus {
+    color: hsl(var(--Hufflepuff-color));
+}
+
 /* characters-full */
 #character-files {}
 
@@ -324,6 +337,15 @@ select {
 
 }
 
+.wrapper {
+    max-width: 80%;
+    margin: auto
+}
+
+/*Gallery */
+
+
+
 /*media queries */
 @media (min-width: 1000px) {
     .search-container {
@@ -340,8 +362,4 @@ select {
     .seach-bar-container {
         width: 60%;
     }
-}
-
-img {
-    width: 15%;
 }
