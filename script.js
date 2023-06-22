@@ -169,6 +169,7 @@ inputSearch.addEventListener('input', () => {
     let nameResult = nameRGEX.test(inputName.value)
     if (nameResult === false) {
     }
+
 })
 
 
