@@ -98,7 +98,6 @@ function printCharactersFiles(data) {
                     <div class="data-container">
                         <h2>${data[numberIdOfCharacter].name}</h2>
                         ${data[numberIdOfCharacter].actor ? actor : ''}
-                        <label><span>Alternate names:</span>YA VEVEMOS </label>
                         ${data[numberIdOfCharacter].ancestry ? ancestry : ''}
                         ${data[numberIdOfCharacter].eyeColour ? eyeColour : ''}
                         ${data[numberIdOfCharacter].house ? house : ''}
@@ -164,6 +163,13 @@ async function getAndPrintSpells() {
 }
 getAndPrintSpells()
 
+
+inputSearch.addEventListener('input', () => {
+    let nameRGEX = /[a-záéíúó\s]$/
+    let nameResult = nameRGEX.test(inputName.value)
+    if (nameResult === false) {
+    }
+})
 
 
 
